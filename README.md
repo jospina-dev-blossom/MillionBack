@@ -1,37 +1,37 @@
 # Million Properties API
 
-API REST para la gestiÛn de propiedades inmobiliarias desarrollada con .NET 8, MongoDB y arquitectura limpia.
+API REST para la gesti√≥n de propiedades inmobiliarias desarrollada con .NET 8, MongoDB y arquitectura limpia.
 
-## ?? DescripciÛn
+##  Descripci√≥n
 
-Million Properties API es una soluciÛn backend para la gestiÛn integral de propiedades inmobiliarias. Permite consultar propiedades con filtros avanzados, obtener informaciÛn detallada incluyendo propietarios, im·genes y historial de transacciones.
+Million Properties API es una soluci√≥n backend para la gesti√≥n integral de propiedades inmobiliarias. Permite consultar propiedades con filtros avanzados, obtener informaci√≥n detallada incluyendo propietarios, im√°genes y historial de transacciones.
 
-## ??? Arquitectura
+## Arquitectura
 
-El proyecto sigue los principios de **Clean Architecture** y est· organizado en las siguientes capas:
+El proyecto sigue los principios de **Clean Architecture** y est√° organizado en las siguientes capas:
 
-- **MillionApi.Api**: Capa de presentaciÛn (Controllers, Middleware)
-- **MillionApi.Application**: LÛgica de aplicaciÛn (CQRS con MediatR, Queries, DTOs, Validaciones)
+- **MillionApi.Api**: Capa de presentaci√≥n (Controllers, Middleware)
+- **MillionApi.Application**: L√≥gica de aplicaci√≥n (CQRS con MediatR, Queries, DTOs, Validaciones)
 - **MillionApi.Domain**: Entidades de dominio y excepciones personalizadas
 - **MillionApi.Infrastructure**: Acceso a datos (MongoDB, Repositorios, Seed Data)
 - **MillionApi.Test.Unit**: Pruebas unitarias
 
-## ?? TecnologÌas
+##  Tecnolog√≠as
 
 - **.NET 8**
 - **MongoDB 3.5.0**
-- **MediatR 13.1.0** - PatrÛn CQRS
+- **MediatR 13.1.0** - Patr√≥n CQRS
 - **AutoMapper 15.1.0** - Mapeo de objetos
-- **FluentValidation 11.3.1** - ValidaciÛn de modelos
-- **Swagger/OpenAPI** - DocumentaciÛn de API
+- **FluentValidation 11.3.1** - Validaci√≥n de modelos
+- **Swagger/OpenAPI** - Documentaci√≥n de API
 
-## ?? Requisitos Previos
+##  Requisitos Previos
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
 - [MongoDB Server](https://www.mongodb.com/try/download/community) o una instancia de MongoDB en contenedor
 - Visual Studio 2022+ o Visual Studio Code
 
-## ?? InstalaciÛn
+##  Instalaci√≥n
 
 ### 1. Clonar el repositorio
 
@@ -42,11 +42,11 @@ cd MillionBack
 
 ### 2. Configurar MongoDB
 
-#### OpciÛn A: MongoDB Local
+#### Opci√≥n A: MongoDB Local
 
-Instalar MongoDB Server y asegurarse de que estÈ corriendo en `localhost:27017`.
+Instalar MongoDB Server y asegurarse de que est√© corriendo en `localhost:27017`.
 
-#### OpciÛn B: MongoDB con Docker
+#### Opci√≥n B: MongoDB con Docker
 
 ```bash
 docker run -d -p 27017:27017 --name mongodb \
@@ -55,7 +55,7 @@ docker run -d -p 27017:27017 --name mongodb \
   mongo:latest
 ```
 
-### 3. Configurar la cadena de conexiÛn
+### 3. Configurar la cadena de conexi√≥n
 
 Editar el archivo `appsettings.json` o `appsettings.Development.json`:
 
@@ -80,9 +80,9 @@ dotnet restore
 dotnet build
 ```
 
-## ?? EjecuciÛn
+##  Ejecuci√≥n
 
-### Ejecutar desde la lÌnea de comandos
+### Ejecutar desde la l√≠nea de comandos
 
 ```bash
 cd MillionApi
@@ -91,41 +91,41 @@ dotnet run
 
 ### Ejecutar desde Visual Studio
 
-1. Abrir la soluciÛn `MillionApi.sln`
+1. Abrir la soluci√≥n `MillionApi.sln`
 2. Establecer `MillionApi.Api` como proyecto de inicio
-3. Presionar `F5` o hacer clic en el botÛn "Run"
+3. Presionar `F5` o hacer clic en el bot√≥n "Run"
 
-La API estar· disponible en:
+La API estar√° disponible en:
 - **HTTPS**: `https://localhost:49404`
 - **HTTP**: `http://localhost:49405`
 
-## ?? DocumentaciÛn Swagger
+##  Documentaci√≥n Swagger
 
-Una vez que la aplicaciÛn estÈ ejecut·ndose, acceder a la documentaciÛn interactiva de Swagger:
+Una vez que la aplicaci√≥n est√© ejecut√°ndose, acceder a la documentaci√≥n interactiva de Swagger:
 
 ```
 https://localhost:49404/swagger
 ```
 
 Swagger proporciona:
-- DocumentaciÛn completa de todos los endpoints
+- Documentaci√≥n completa de todos los endpoints
 - Posibilidad de probar la API directamente desde el navegador
 - Esquemas de request/response
-- CÛdigos de estado HTTP
+- C√≥digos de estado HTTP
 
-## ?? Endpoints Principales
+##  Endpoints Principales
 
 ### GET /api/v1/properties
 
 Obtiene una lista paginada de propiedades con filtros opcionales.
 
-**Par·metros de consulta:**
+**Par√°metros de consulta:**
 - `Name` (opcional): Filtrar por nombre
-- `Address` (opcional): Filtrar por direcciÛn
-- `MinPrice` (opcional): Precio mÌnimo
-- `MaxPrice` (opcional): Precio m·ximo
-- `PageNumber` (default: 1): N˙mero de p·gina
-- `PageSize` (default: 10): TamaÒo de p·gina
+- `Address` (opcional): Filtrar por direcci√≥n
+- `MinPrice` (opcional): Precio m√≠nimo
+- `MaxPrice` (opcional): Precio m√°ximo
+- `PageNumber` (default: 1): N√∫mero de p√°gina
+- `PageSize` (default: 10): Tama√±o de p√°gina
 
 **Ejemplo:**
 ```
@@ -134,9 +134,9 @@ GET /api/v1/properties?Name=Casa&MinPrice=100000&MaxPrice=500000&PageNumber=1&Pa
 
 ### GET /api/v1/properties/{id}
 
-Obtiene una propiedad por su ID con informaciÛn completa (propietario, im·genes, historial).
+Obtiene una propiedad por su ID con informaci√≥n completa (propietario, im√°genes, historial).
 
-**Par·metros:**
+**Par√°metros:**
 - `id`: ObjectId de MongoDB (24 caracteres hexadecimales)
 
 **Ejemplo:**
@@ -144,43 +144,43 @@ Obtiene una propiedad por su ID con informaciÛn completa (propietario, im·genes,
 GET /api/v1/properties/507f1f77bcf86cd799439011
 ```
 
-## ?? Datos de Prueba (Seed Data)
+##  Datos de Prueba (Seed Data)
 
-La aplicaciÛn incluye un sistema de seed data que se ejecuta autom·ticamente al iniciar por primera vez. Este seed incluye:
+La aplicaci√≥n incluye un sistema de seed data que se ejecuta autom√°ticamente al iniciar por primera vez. Este seed incluye:
 
 - 5 propietarios (Owners)
-- 20 propiedades con im·genes de Unsplash
-- Im·genes adicionales para las primeras 10 propiedades
+- 20 propiedades con im√°genes de Unsplash
+- Im√°genes adicionales para las primeras 10 propiedades
 - Historial de transacciones (PropertyTraces) para todas las propiedades
 
-Los datos se insertan solo si la base de datos est· vacÌa.
+Los datos se insertan solo si la base de datos est√° vac√≠a.
 
-## ?? CaracterÌsticas Destacadas
+##  Caracter√≠sticas Destacadas
 
 ### Manejo de Excepciones Personalizado
 
 - Middleware global de excepciones
 - Respuestas estructuradas con ProblemDetails (RFC 7807)
-- CÛdigos de estado HTTP apropiados
+- C√≥digos de estado HTTP apropiados
 
-### ValidaciÛn con FluentValidation
+### Validaci√≥n con FluentValidation
 
-- ValidaciÛn autom·tica de requests
+- Validaci√≥n autom√°tica de requests
 - Reglas de negocio claras y mantenibles
 - Mensajes de error descriptivos
 
-### OptimizaciÛn de Consultas
+### Optimizaci√≥n de Consultas
 
-- Õndices MongoDB para consultas eficientes
-- Õndices compuestos para b˙squedas filtradas
-- Õndices de texto para b˙squedas full-text
+- √çndices MongoDB para consultas eficientes
+- √çndices compuestos para b√∫squedas filtradas
+- √çndices de texto para b√∫squedas full-text
 
-### PaginaciÛn
+### Paginaci√≥n
 
-- PaginaciÛn nativa en todas las consultas de lista
-- Metadata de paginaciÛn en las respuestas (TotalCount, PageNumber, PageSize)
+- Paginaci√≥n nativa en todas las consultas de lista
+- Metadata de paginaci√≥n en las respuestas (TotalCount, PageNumber, PageSize)
 
-## ?? Pruebas
+##  Pruebas
 
 ### Ejecutar pruebas unitarias
 
@@ -188,34 +188,34 @@ Los datos se insertan solo si la base de datos est· vacÌa.
 dotnet test
 ```
 
-## ?? Estructura del Proyecto
+##  Estructura del Proyecto
 
 ```
 MillionApi/
-??? MillionApi.Api/     # API Controllers y Middleware
-? ??? Controllers/
-?   ??? Middleware/
-?   ??? Program.cs
-??? MillionApi.Application/         # LÛgica de aplicaciÛn
-?   ??? Interfaces/
-?   ??? Queries/
-?   ??? Mappings/
-?   ??? Validators/
-??? MillionApi.Domain/    # Entidades de dominio
-?   ??? AggregateModel/
-?   ??? Exceptions/
-??? MillionApi.Infrastructure/ # Acceso a datos
-?   ??? Data/
-?   ??? Repositories/
-?   ??? SeedData/
-??? MillionApi.Test.Unit/      # Pruebas unitarias
+ MillionApi.Api/     # API Controllers y Middleware
+  Controllers/
+    Middleware/
+    Program.cs
+ MillionApi.Application/         # L√≥gica de aplicaci√≥n
+    Interfaces/
+    Queries/
+    Mappings/
+    Validators/
+ MillionApi.Domain/    # Entidades de dominio
+    AggregateModel/
+    Exceptions/
+ MillionApi.Infrastructure/ # Acceso a datos
+    Data/
+    Repositories/
+    SeedData/
+ MillionApi.Test.Unit/      # Pruebas unitarias
 ```
 
-## ??? ConfiguraciÛn Adicional
+## Configuraci√≥n Adicional
 
 ### Variables de Entorno
 
-Puedes configurar la aplicaciÛn mediante variables de entorno:
+Puedes configurar la aplicaci√≥n mediante variables de entorno:
 
 ```bash
 # Ejemplo en Linux/Mac
@@ -227,20 +227,20 @@ $env:MongoSettings__Connection="mongodb://admin:admin123@localhost:27017"
 $env:MongoSettings__DatabaseName="MillionDb"
 ```
 
-### ConfiguraciÛn por Entorno
+### Configuraci√≥n por Entorno
 
-- `appsettings.json`: ConfiguraciÛn base
-- `appsettings.Development.json`: ConfiguraciÛn para desarrollo
-- `appsettings.Production.json`: ConfiguraciÛn para producciÛn (crear si es necesario)
+- `appsettings.json`: Configuraci√≥n base
+- `appsettings.Development.json`: Configuraci√≥n para desarrollo
+- `appsettings.Production.json`: Configuraci√≥n para producci√≥n (crear si es necesario)
 
-## ?? Notas de Desarrollo
+##  Notas de Desarrollo
 
 ### Agregar nuevas propiedades al filtro
 
-Para agregar nuevos filtros de b˙squeda, modificar:
+Para agregar nuevos filtros de b√∫squeda, modificar:
 1. `GetPropertiesRequest.cs` - Agregar propiedades
 2. `GetPropertiesRequestValidator.cs` - Agregar validaciones
-3. `PropertyRepository.cs` - Agregar filtros en el mÈtodo `GetAsync`
+3. `PropertyRepository.cs` - Agregar filtros en el m√©todo `GetAsync`
 
 ### Agregar nuevos endpoints
 
@@ -250,7 +250,7 @@ Para agregar nuevos filtros de b˙squeda, modificar:
 4. Crear el endpoint en el Controller
 5. Documentar con XML comments para Swagger
 
-## ?? ContribuciÛn
+##  Contribuci√≥n
 
 1. Fork el proyecto
 2. Crear una rama para tu feature (`git checkout -b feature/AmazingFeature`)
@@ -258,10 +258,10 @@ Para agregar nuevos filtros de b˙squeda, modificar:
 4. Push a la rama (`git push origin feature/AmazingFeature`)
 5. Abrir un Pull Request
 
-## ?? Licencia
+##  Licencia
 
-Este proyecto es privado y est· bajo la licencia de Million Properties Team.
+MIT License Copyright (c) 2025 Jhon Ospina Permission is hereby granted, free of charge, to any person obtaining a copy...
 
-## ?? Contacto
+##  Contacto
 
-Million Properties Team - [GitHub](https://github.com/jospina-dev-blossom)
+Jhon Ospina - [GitHub](https://github.com/jospina-dev-blossom)
